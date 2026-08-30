@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berhasil Upload - PTB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ptb-green': '#4F8A55', 
+                        'ptb-lime': '#73A942', /* Warna hijau cerah untuk teks */
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-800">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <aside class="w-64 bg-ptb-green text-white flex flex-col px-6 py-8 shadow-xl">
+            <div class="flex items-center gap-3 mb-10">
+                <div class="text-3xl text-white"><i class="fa-solid fa-seedling"></i></div>
+                <div class="flex flex-col">
+                    <h1 class="text-2xl font-bold tracking-wide">PTB</h1>
+                    <span class="text-[10px] opacity-80 leading-3">Superior Variety Seeds For Life</span>
+                </div>
+            </div>
+
+            <button class="bg-[#5ea366] text-white rounded-xl h-24 flex items-center justify-center text-5xl mb-8 shadow-inner border-2 border-white/20">
+                +
+            </button>
+
+            <nav class="flex-1 space-y-4">
+                <a href="admin.php" class="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-[#5ea366] transition opacity-80 hover:opacity-100">
+                    <i class="fa-solid fa-table-cells-large text-xl"></i>
+                    <span class="font-medium">Dashboard</span>
+                </a>
+                <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-[#5ea366] transition opacity-80 hover:opacity-100">
+                    <i class="fa-regular fa-file-lines text-xl"></i>
+                    <span class="font-medium">Artikel</span>
+                </a>
+                <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-[#5ea366] transition opacity-80 hover:opacity-100">
+                    <i class="fa-regular fa-image text-xl"></i>
+                    <span class="font-medium">Galeri Kegiatan</span>
+                </a>
+                <a href="#" class="flex items-center gap-4 px-4 py-3 rounded-lg hover:bg-[#5ea366] transition opacity-80 hover:opacity-100">
+                    <i class="fa-solid fa-gear text-xl"></i>
+                    <span class="font-medium">Pengaturan</span>
+                </a>
+            </nav>
+        </aside>
+
+        <main class="flex-1 flex flex-col h-full relative">
+            
+            <header class="px-12 py-8 flex justify-between items-center absolute top-0 left-0 w-full z-10">
+                <div class="relative w-1/3">
+                    <input type="text" placeholder="Cari artikel" class="w-full bg-[#E9EFE9] rounded-lg pl-4 pr-10 py-3 focus:outline-none text-gray-600">
+                    <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                </div>
+                <div class="flex items-center gap-4">
+                    <img src="https://ui-avatars.com/api/?name=Arif+Tirtana&background=0D8ABC&color=fff" alt="Profile" class="w-10 h-10 rounded-full border border-gray-200">
+                    <div class="text-sm font-medium text-gray-700">Arif Tirtana, S.P, M.Si.</div>
+                </div>
+            </header>
+
+            <div class="flex-1 flex flex-col items-center justify-center h-full pb-20">
+                
+                <div class="w-48 h-48 bg-ptb-green rounded-full flex items-center justify-center shadow-lg mb-8 animate-bounce-slow">
+                    <i class="fa-solid fa-check text-white text-9xl"></i>
+                </div>
+
+                <h2 class="text-3xl font-bold text-[#6CA935] tracking-wide">
+                    Artikel berhasil di Upload
+                </h2>
+
+                <a href="admin.php" class="mt-10 px-8 py-3 bg-gray-200 text-gray-600 rounded-lg hover:bg-gray-300 transition font-medium">
+                    Kembali ke Dashboard
+                </a>
+
+            </div>
+
+        </main>
+    </div>
+
+    <style>
+        /* Animasi halus agar ikon terlihat hidup */
+        @keyframes popup {
+            0% { transform: scale(0); opacity: 0; }
+            80% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-bounce-slow {
+            animation: popup 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+    </style>
+
+</body>
+</html>

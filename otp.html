@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verifikasi - PTB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="min-h-screen flex">
+    <div class="w-full lg:w-1/2 flex items-center justify-center bg-white p-8">
+      <div class="w-full max-w-md">
+        <div class="mb-8">
+          <a
+            href="verifemail.html"
+            class="flex items-center text-gray-600 hover:text-gray-800 transition-colors"
+          >
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              ></path>
+            </svg>
+            <span class="text-sm font-medium">Kembali</span>
+          </a>
+        </div>
+
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">
+          Verifikasi bahwa ini dirimu
+        </h1>
+
+        <p class="text-gray-600 mb-8">
+          Masukan 6 digit kode verifikasi yang di kirim ke email
+          <span class="font-semibold" id="userEmail"
+            >andi**********@gmail.com</span
+          >
+        </p>
+
+        <div class="flex gap-3 mb-6" id="otpContainer">
+          <input
+            type="text"
+            maxlength="1"
+            class="w-14 h-14 text-center text-2xl font-semibold bg-gray-100 border-2 border-transparent rounded-xl focus:outline-none focus:border-green-600 focus:bg-white transition"
+            data-index="0"
+          />
+          <input
+            type="text"
+            maxlength="1"
+            class="w-14 h-14 text-center text-2xl font-semibold bg-gray-100 border-2 border-transparent rounded-xl focus:outline-none focus:border-green-600 focus:bg-white transition"
+            data-index="1"
+          />
+          <input
+            type="text"
+            maxlength="1"
+            class="w-14 h-14 text-center text-2xl font-semibold bg-gray-100 border-2 border-transparent rounded-xl focus:outline-none focus:border-green-600 focus:bg-white transition"
+            data-index="2"
+          />
+          <input
+            type="text"
+            maxlength="1"
+            class="w-14 h-14 text-center text-2xl font-semibold bg-gray-100 border-2 border-transparent rounded-xl focus:outline-none focus:border-green-600 focus:bg-white transition"
+            data-index="3"
+          />
+          <input
+            type="text"
+            maxlength="1"
+            class="w-14 h-14 text-center text-2xl font-semibold bg-gray-100 border-2 border-transparent rounded-xl focus:outline-none focus:border-green-600 focus:bg-white transition"
+            data-index="4"
+          />
+          <input
+            type="text"
+            maxlength="1"
+            class="w-14 h-14 text-center text-2xl font-semibold bg-gray-100 border-2 border-transparent rounded-xl focus:outline-none focus:border-green-600 focus:bg-white transition"
+            data-index="5"
+          />
+        </div>
+
+        <button
+          id="verifyBtn"
+          class="w-full bg-green-700 hover:bg-green-800 text-white py-3 rounded-xl font-medium transition-colors mb-6 disabled:bg-gray-300 disabled:cursor-not-allowed"
+          disabled
+        >
+          Verifikasi
+        </button>
+
+        <p class="text-center text-gray-600 text-sm">
+          Kode sedang dikirim dalam
+          <span id="timer" class="font-semibold">01:59</span>
+        </p>
+
+        <button
+          id="resendBtn"
+          class="w-full text-green-700 hover:text-green-800 font-medium py-2 hidden"
+        >
+          Kirim ulang kode
+        </button>
+      </div>
+    </div>
+
+    <div class="hidden lg:block lg:w-1/2 relative">
+      <img
+        src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1400&q=80"
+        alt="Tanaman"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-black/20"></div>
+    </div>
+
+    <script>
+      // OTP Input Handler
+      const inputs = document.querySelectorAll("#otpContainer input");
+      const verifyBtn = document.getElementById("verifyBtn");
+      const timerEl = document.getElementById("timer");
+      const resendBtn = document.getElementById("resendBtn");
+
+      // Auto-focus next input
+      inputs.forEach((input, index) => {
+        input.addEventListener("input", (e) => {
+          const value = e.target.value;
+
+          // Only allow numbers
+          if (!/^\d*$/.test(value)) {
+            e.target.value = "";
+            return;
+          }
+
+          // Move to next input
+          if (value && index < inputs.length - 1) {
+            inputs[index + 1].focus();
+          }
+
+          // Check if all inputs are filled
+          checkAllFilled();
+        });
+
+        // Handle backspace
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "Backspace" && !e.target.value && index > 0) {
+            inputs[index - 1].focus();
+          }
+        });
+
+        // Handle paste
+        input.addEventListener("paste", (e) => {
+          e.preventDefault();
+          const pasteData = e.clipboardData.getData("text").slice(0, 6);
+          const digits = pasteData.split("");
+
+          digits.forEach((digit, i) => {
+            if (inputs[i] && /^\d$/.test(digit)) {
+              inputs[i].value = digit;
+            }
+          });
+
+          if (digits.length > 0) {
+            inputs[Math.min(digits.length, inputs.length - 1)].focus();
+          }
+
+          checkAllFilled();
+        });
+      });
+
+      // Check if all inputs are filled
+      function checkAllFilled() {
+        const allFilled = Array.from(inputs).every(
+          (input) => input.value !== ""
+        );
+        verifyBtn.disabled = !allFilled;
+      }
+
+      // Get OTP code
+      function getOTPCode() {
+        return Array.from(inputs)
+          .map((input) => input.value)
+          .join("");
+      }
+
+      // Timer countdown
+      let timeLeft = 119; // 1:59
+      const countdown = setInterval(() => {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        timerEl.textContent = `${String(minutes).padStart(2, "0")}:${String(
+          seconds
+        ).padStart(2, "0")}`;
+
+        if (timeLeft === 0) {
+          clearInterval(countdown);
+          timerEl.parentElement.classList.add("hidden");
+          resendBtn.classList.remove("hidden");
+        }
+
+        timeLeft--;
+      }, 1000);
+
+      // Verify button handler
+      verifyBtn.addEventListener("click", async () => {
+        const code = getOTPCode();
+
+        // Tampilkan loading state
+        verifyBtn.disabled = true;
+        verifyBtn.textContent = "Memverifikasi...";
+
+        try {
+          // INTEGRASI BACKEND - Kirim ke API
+          const response = await fetch("/api/verify-otp", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: sessionStorage.getItem("verificationEmail"), // Email disimpan saat login
+              otp: code,
+            }),
+          });
+
+          const data = await response.json();
+
+          if (response.ok && data.success) {
+            // Verifikasi berhasil
+            // Hapus alert verifikasi yang lama
+            // alert("Verifikasi berhasil!"); 
+            
+            // 🎯 PERUBAHAN MINIMAL: Redirect ke newpassword.html
+            window.location.href = "newpassword.html"; 
+          } else {
+            // Verifikasi gagal
+            alert(data.message || "Kode verifikasi salah!");
+            inputs.forEach((input) => (input.value = ""));
+            inputs[0].focus();
+            verifyBtn.disabled = true;
+            verifyBtn.textContent = "Verifikasi";
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Terjadi kesalahan. Silakan coba lagi.");
+          verifyBtn.textContent = "Verifikasi";
+        }
+      });
+
+      // Resend button handler
+      resendBtn.addEventListener("click", async () => {
+        try {
+          // INTEGRASI BACKEND - Request OTP baru
+          const response = await fetch("/api/resend-otp", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: sessionStorage.getItem("verificationEmail"),
+            }),
+          });
+
+          const data = await response.json();
+
+          if (response.ok && data.success) {
+            alert("Kode verifikasi baru telah dikirim!");
+
+            // Reset timer
+            timeLeft = 119;
+            resendBtn.classList.add("hidden");
+            timerEl.parentElement.classList.remove("hidden");
+
+            // Clear inputs
+            inputs.forEach((input) => (input.value = ""));
+            inputs[0].focus();
+          } else {
+            alert(data.message || "Gagal mengirim ulang kode.");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Terjadi kesalahan. Silakan coba lagi.");
+        }
+      });
+
+      // Auto-focus first input on load
+      inputs[0].focus();
+
+      // Load email from sessionStorage (set during login)
+      const savedEmail = sessionStorage.getItem("verificationEmail");
+      if (savedEmail) {
+        // Mask email untuk privacy
+        const [username, domain] = savedEmail.split("@");
+        const maskedUsername =
+          username.charAt(0) + username.charAt(1) + "*".repeat(10);
+        document.getElementById("userEmail").textContent =
+          maskedUsername + "@" + domain;
+      }
+    </script>
+  </body>
+</html>

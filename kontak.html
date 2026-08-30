@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program Studi Pemuliaan Tanaman dan Teknologi Benih</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            poppins: ['Poppins', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+</head>
+
+<body class="antialiased font-poppins bg-gray-50">
+
+  <div id="page-loader"
+    class="fixed inset-0 z-[9999] bg-white flex flex-col justify-center items-center transition-opacity duration-150 opacity-100">
+
+    <div class="relative w-24 h-24">
+
+      <svg class="animate-spin w-full h-full text-green-600" viewBox="0 0 100 100" fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="4" class="opacity-10" />
+
+        <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="6" stroke-linecap="round"
+          stroke-dasharray="180" stroke-dashoffset="100" />
+      </svg>
+
+      <img src="assets logo/fav-icon-ptb.png" alt="Logo PTB"
+        class="w-14 h-14 object-contain absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full" />
+    </div>
+
+    <p class="text-green-600 font-semibold text-lg animate-pulse mt-4">Memuat Halaman...</p>
+  </div>
+
+  <header id="main-navbar"
+    class="bg-white backdrop-blur-lg fixed top-0 left-0 right-0 w-full z-50 shadow-sm py-3 transition-transform duration-300 ease-in-out">
+    <nav class="max-w-7xl mx-auto py-4 px-6 flex justify-between items-center text-gray-400">
+      <a href="landingpage.php"><img src="assets logo/logo.png" class="h-12" alt="Logo PTB"></a>
+      <ul class="hidden md:flex gap-8 font-semibold">
+        <li><a href="landingpage.php" class="hover:text-purple-600 transition duration-300">Beranda</a></li>
+        <li><a href="sejarahprodi.html" class="hover:text-purple-600 transition duration-300">Profil</a></li>
+        <li><a href="galeri.php" class="hover:text-purple-600 transition duration-300">Kegiatan</a></li>
+        
+        <li><a href="alur pendaftaran.html" id="pendaftaran-link-desktop" class="hover:text-purple-600 transition duration-300">Pendaftaran</a></li>
+        
+        <li><a href="kontak.html"
+            class="hover:text-purple-600 transition duration-300 text-purple-600 border-b-4 pb-9 border-b-purple-600">Kontak</a>
+        </li>
+      </ul>
+      <button id="menu-btn"
+        class="md:hidden text-gray-700 text-3xl z-50 transition-transform duration-200 active:scale-90"
+        aria-label="menu">
+        ☰
+      </button>
+    </nav>
+  </header>
+
+  <div id="mobileMenu" class="fixed top-0 right-0 h-full w-64 bg-white text-gray-700 p-8 transform translate-x-full 
+              transition-transform duration-300 ease-in-out z-40 shadow-lg">
+    <ul class="flex flex-col gap-6 pt-20 text-lg font-medium">
+      <li><a href="landingpage.php" class="hover:text-purple-600 block transition duration-300">Beranda</a></li>
+      <li><a href="sejarahprodi.html" class="hover:text-purple-600 block transition duration-300">Profil</a></li>
+      <li><a href="galeri.php" class="hover:text-purple-600 block transition duration-300">Kegiatan</a></li>
+      
+      <li><a href="alur pendaftaran.html" id="pendaftaran-link-mobile" class="hover:text-purple-600 block transition duration-300">Pendaftaran</a></li>
+      
+      <li><a href="kontak.html" class="hover:text-purple-600 block transition duration-300">Kontak</a></li>
+    </ul>
+  </div>
+
+  <section class="relative pt-[80px]">
+    <div class="relative text-white flex flex-col items-center justify-center bg-center bg-no-repeat bg-cover 
+      px-6 py-24 sm:py-28 md:py-20 lg:py-24 xl:py-28" style="background-image: url('Union.png');">
+      <div class="relative z-10 text-center max-w-2xl">
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">
+          Kontak Kami
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-6 mt-20 mb-16 text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-green-800 mb-10" data-aos="fade-up">
+      Silakan hubungi kami jika ada yang ingin ditanyakan lebih lanjut
+    </h2>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 py-10">
+    <div class="flex justify-center" data-aos="fade-right" data-aos-delay="100">
+      <img src="assets/kontak.png" alt="Kontak" class="w-64 md:w-72">
+    </div>
+
+    <div class="space-y-6 text-gray-900">
+      <div class="flex items-center gap-3" data-aos="fade-left" data-aos-delay="100">
+        <i class="fab fa-facebook text-2xl text-green-700"></i><span class="font-semibold">Pemuliaan Tanaman dan
+          Industri Benih IPB</span>
+      </div>
+      <div class="flex items-center gap-3" data-aos="fade-left" data-aos-delay="200">
+        <i class="fab fa-instagram text-2xl text-green-700"></i><span class="font-semibold">@ptb_svipb</span>
+      </div>
+      <div class="flex items-center gap-3" data-aos="fade-left" data-aos-delay="300">
+        <i class="fab fa-x-twitter text-2xl text-green-700"></i><span class="font-semibold">ptb_svipb</span>
+      </div>
+      <div class="flex items-center gap-3" data-aos="fade-left" data-aos-delay="400">
+        <i class="fab fa-youtube text-2xl text-green-700"></i><span class="font-semibold">Pemuliaan Tanaman dan Industri
+          Benih IPB</span>
+      </div>
+      <div class="flex items-center gap-3" data-aos="fade-left" data-aos-delay="500">
+        <i class="fa fa-phone text-2xl text-green-700"></i><span class="font-semibold">080000000000</span>
+      </div>
+      <div class="flex items-center gap-3" data-aos="fade-left" data-aos-delay="600">
+        <i class="fa fa-envelope text-2xl text-green-700"></i><span class="font-semibold">ptb@apps.ipb.ac.id</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="relative text-white overflow-hidden mt-20">
+    <div class="absolute top-0 left-0 w-full h-full -z-10" style="
+    background-image: url('footer1.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+  "></div>
+    <div class="relative z-10 pt-32 pb-10">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img src="assets logo/logoputih.png" alt="PTB Logo" class="h-14">
+          </div>
+          <p class="text-sm leading-relaxed">
+            Jl. Kumbang No.14, RT.02/RW.06, Babakan,<br>
+            Kecamatan Bogor Tengah, Kota Bogor,<br>
+            Jawa Barat 16128
+          </p>
+
+          <div class="flex gap-4 mt-5">
+            <a href="https://www.instagram.com/ptbsvipb/" class="hover:opacity-70 transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+            <a href="https://www.facebook.com/vokasiipb?locale=id_ID" class="hover:opacity-70 transition"><i class="fa-brands fa-facebook text-xl"></i></a>
+            <a href="#" class="hover:opacity-70 transition"><i class="fa-brands fa-youtube text-xl"></i></a>
+            <a href="#" class="hover:opacity-70 transition"><i class="fa-brands fa-tiktok text-xl"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xl font-bold mb-5">Menu</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="landingpage.php" class="hover:text-purple-400">Beranda</a></li>
+            <li><a href="sejarahprodi.html" class="hover:text-purple-400">Profil</a></li>
+            <li><a href="galeri.php" class="hover:text-purple-300">Galeri</a></li>
+            <li><a href="alur pendaftaran.html" class="hover:text-purple-400">Pendaftaran</a></li>
+            <li><a href="kontak.html" class="hover:text-purple-400">Kontak</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xl font-bold mb-5">Kontak</h4>
+          <p class="text-sm mb-3">+62 852 1659 0447</p>
+          <p class="text-sm">ptb@apps.ipb.ac.id</p>
+        </div>
+      </div>
+
+      <div class="border-t border-white/30 mt-12 pt-4 text-center">
+        <p class="text-sm">
+          © 2025 Pohon Toge Kelompok 4 B2
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // =========================================
+      // BAGIAN 1: MOBILE MENU
+      // =========================================
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      let isOpen = false;
+
+      // Cek apakah elemen ada sebelum pasang event listener (biar gak error)
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          isOpen = !isOpen;
+          if (isOpen) {
+            mobileMenu.classList.remove('translate-x-full');
+            menuBtn.textContent = '✕';
+          } else {
+            mobileMenu.classList.add('translate-x-full');
+            menuBtn.textContent = '☰';
+          }
+        });
+
+        // Tutup menu saat klik di luar
+        document.addEventListener('click', (e) => {
+          if (isOpen && !mobileMenu.contains(e.target) && e.target !== menuBtn) {
+            mobileMenu.classList.add('translate-x-full');
+            menuBtn.textContent = '☰';
+            isOpen = false;
+          }
+        });
+      }
+
+      // =========================================
+      // BAGIAN 2: INISIALISASI AOS (ANIMASI)
+      // =========================================
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100,
+      });
+
+      // =========================================
+      // BAGIAN 3: NAVBAR HILANG/MUNCUL SAAT SCROLL (LOGIKA PERBAIKAN SEBELUMNYA)
+      // =========================================
+      const navbar = document.getElementById("main-navbar");
+      let lastScrollTop = 0;
+      const scrollThreshold = 100; // Toleransi: NavBar akan terlihat jika scroll di atas 100px
+
+      // Pastikan navbar ada (ID sudah dipasang di HTML header)
+      if (navbar) {
+        window.addEventListener("scroll", function () {
+          let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+          // Kondisi 1: Jika di dekat bagian atas halaman (NavBar selalu muncul)
+          if (currentScroll < scrollThreshold) {
+            navbar.style.transform = "translateY(0)";
+          }
+          // Kondisi 2: Scroll ke BAWAH (Sembunyikan)
+          else if (currentScroll > lastScrollTop) {
+            navbar.style.transform = "translateY(-100%)";
+          } 
+          // Kondisi 3: Scroll ke ATAS (Munculkan)
+          else {
+            navbar.style.transform = "translateY(0)";
+          }
+
+          // Update posisi (hindari negatif untuk scroll bouncing iOS)
+          lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        });
+      } else {
+        console.error("ID 'main-navbar' tidak ditemukan! Pastikan tag <header> punya id='main-navbar'");
+      }
+
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loader = document.getElementById('page-loader');
+
+      // 1. SAAT HALAMAN DIBUKA (HAMPIR INSTAN)
+      // Cuma nunggu 200ms (0.2 detik) langsung hilang loadernya
+      setTimeout(() => {
+        if (loader) {
+          loader.classList.add('opacity-0'); // KOREKSI TYPO BERHASIL!
+          loader.classList.add('pointer-events-none');
+        }
+      }, 200);
+
+      // 2. SAAT PINDAH HALAMAN (NGEBUT)
+      const allLinks = document.querySelectorAll('a');
+
+      allLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const targetUrl = link.getAttribute('href');
+          const linkId = link.id; // Ambil ID link
+
+          // Filter link yang tidak perlu loading
+          if (!targetUrl || targetUrl === '#' || targetUrl.startsWith('#') || link.target === '_blank' || linkId.startsWith('pendaftaran-link')) {
+            return;
+          }
+
+          e.preventDefault();
+
+          // Munculkan loader
+          if (loader) {
+            loader.classList.remove('opacity-0');
+            loader.classList.remove('pointer-events-none');
+          }
+
+          // Cuma nunggu 200ms (0.2 detik) langsung pindah
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 200);
+        });
+      });
+    });
+  </script>
+
+
+
+</body>
+
+</html>

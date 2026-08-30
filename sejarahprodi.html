@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets logo/fav-icon-ptb.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <title>Program Studi Pemuliaan Tanaman dan Teknologi Benih</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    // Menambahkan warna kustom dari gambar
+                    colors: {
+                        'primary': '#2a6a43',   // Hijau Tua
+                        'secondary': '#eaf3ed', // Hijau Muda
+                    },
+                    // Mengatur font default ke Poppins
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="antialiased font-poppins bg-gray-50">
+
+    <div id="page-loader"
+        class="fixed inset-0 z-[9999] bg-white flex flex-col justify-center items-center transition-opacity duration-150 opacity-100">
+
+        <div class="relative w-24 h-24">
+
+            <svg class="animate-spin w-full h-full text-green-600" viewBox="0 0 100 100" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="4" class="opacity-10" />
+
+                <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="6" stroke-linecap="round"
+                    stroke-dasharray="180" stroke-dashoffset="100" />
+            </svg>
+
+            <img src="assets logo/fav-icon-ptb.png" alt="Logo PTB"
+                class="w-14 h-14 object-contain absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full" />
+        </div>
+
+        <p class="text-green-600 font-semibold text-lg animate-pulse mt-4">Memuat Halaman...</p>
+    </div>
+
+    <!--navigasi dekstop-->
+    <header id="main-navbar"
+        class="bg-white backdrop-blur-lg fixed top-0 left-0 right-0 w-full z-50 shadow-sm py-3 transition-transform duration-500 ease-in-out transform-gpu">
+        <nav class="max-w-7xl mx-auto py-4 px-6 flex justify-between items-center text-gray-400">
+            <a href="#"><img src="assets logo/logo.png" class="h-12" alt="Logo PTB"></a>
+            <ul class="hidden md:flex gap-8 font-semibold">
+                <li><a href="landingpage.php" class="hover:text-purple-600 transition">Beranda</a></li>
+                <li><a href="sejarahprodi.html"
+                        class="hover:text-purple-600 transition text-purple-600 border-b-4 pb-9 border-b-purple-600">Profil</a>
+                </li>
+                <li><a href="galeri.php" class="hover:text-purple-600 transition">Kegiatan</a></li>
+                <li><a href="alur pendaftaran.html" class="hover:text-purple-600 transition">Pendaftaran</a></li>
+                <li><a href="kontak.html" class="hover:text-purple-600 transition">Kontak</a></li>
+            </ul>
+            <!--button menu-->
+            <button id="menu-btn" class="md:hidden text-gray-700 text-3xl z-50" aria-label="menu">
+                ☰
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+        class="fixed top-0 right-0 h-full w-64 bg-white text-gray-700 p-8 transform translate-x-full transition-transform duration-300 ease-in-out z-40">
+        <ul class="flex flex-col gap-6 pt-20 text-lg">
+            <li><a href="landingpage.php" class="hover:text-purple-600 block">Beranda</a></li>
+            <li><a href="#visi" class="hover:text-purple-600 block">Profil</a></li>
+            <li><a href="#artikel" class="hover:text-purple-600 block">kegiatan</a></li>
+            <li><a href="alur pendaftaran.html" class="hover:text-purple-600 block">Pendaftaran</a></li>
+            <li><a href="kontak.html" class="hover:text-purple-600 block">Kontak</a></li>
+        </ul>
+    </div>
+
+    <section id="pengajar" class="bg-secondary py-40">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-primary text-center mb-16" data-aos="fade-up">
+                Pengajar
+            </h2>
+
+            <div class="flex flex-col items-center">
+
+                <div class="mb-10" data-aos="fade-up">
+                    <div class="flex flex-col items-center text-center w-52">
+                        <img src="assets poto dosen/Dr.-Undang-S.P.-M.Si_-scaled-e1749713957196.png" alt="Pengajar 1"
+                            class="w-36 h-36 rounded-full border-4 border-white shadow-lg mb-4 object-cover">
+                        <strong class="bg-white text-primary text-sm font-semibold px-4 py-2 rounded-full shadow-sm">Dr.
+                            Undang, S.P., M.Si.</strong>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-10 mb-10">
+                    <div class="flex flex-col items-center text-center w-52" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets poto dosen/Dr.-Aldi-Kamal-Wijaya-S.P.-M.P.-M.Sc_.Tech_-scaled-e1749713913820.png"
+                            alt="Pengajar 2"
+                            class="w-36 h-36 rounded-full border-4 border-white shadow-lg mb-4 object-cover">
+                        <strong class="bg-white text-primary text-sm font-semibold px-4 py-2 rounded-full shadow-sm">Dr.
+                            Aldi Kamal Wijaya, S.P., M.P., M.Sc.Tech.</strong>
+                    </div>
+                    <div class="flex flex-col items-center text-center w-52" data-aos="fade-up" data-aos-delay="200">
+                        <img src="assets poto dosen/Sulassih-S.P.-M.Si_-scaled-e1749713942365.png" alt="Pengajar 3"
+                            class="w-36 h-36 rounded-full border-4 border-white shadow-lg mb-4 object-cover">
+                        <strong
+                            class="bg-white text-primary text-sm font-semibold px-4 py-2 rounded-full shadow-sm">Sulassih,
+                            S.P., M.Si.</strong>
+                    </div>
+                    <div class="flex flex-col items-center text-center w-52" data-aos="fade-up" data-aos-delay="300">
+                        <img src="assets poto dosen/Punjung-Medaraji-Suwarno-S.P.-M.Si_-scaled-e1749713972646 (1).png"
+                            alt="Pengajar 4"
+                            class="w-36 h-36 rounded-full border-4 border-white shadow-lg mb-4 object-cover">
+                        <strong
+                            class="bg-white text-primary text-sm font-semibold px-4 py-2 rounded-full shadow-sm">Punjung
+                            Medaraji
+                            Suwarno, S.P., M.Si. </strong>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-10 mb-10">
+                    <div class="flex flex-col items-center text-center w-52" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets poto dosen/Ulil-Azmi-Nurlaili-Afifah-S.P.-M.Si_-scaled-e1749713927807.png"
+                            alt="Pengajar 5"
+                            class="w-36 h-36 rounded-full border-4 border-white shadow-lg mb-4 object-cover">
+                        <strong
+                            class="bg-white text-primary text-sm font-semibold px-4 py-2 rounded-full shadow-sm">Ulil
+                            Azmi Nurlaili Afifah,
+                            S.P., M.Si.</strong>
+                    </div>
+                    <div class="flex flex-col items-center text-center w-52" data-aos="fade-up" data-aos-delay="200">
+                        <img src="assets poto dosen/tib-arif-scaled-rc5qy9o0nkhpuv3l0kjp7nm0bqdx804vqr67pepsqm.png"
+                            alt="Pengajar 6"
+                            class="w-36 h-36 rounded-full border-4 border-white shadow-lg mb-4 object-cover">
+                        <strong
+                            class="bg-white text-primary text-sm font-semibold px-4 py-2 rounded-full shadow-sm">Arif
+                            Tirtana, S.P., M.Si</strong>
+                    </div>
+                    <div class="flex flex-col items-center text-center w-52" data-aos="fade-up" data-aos-delay="300">
+                        <img src="assets poto dosen/Henny-Rusmiyati-S.P.-M.Si_-scaled-e1749713988364.png"
+                            alt="Pengajar 7"
+                            class="w-36 h-36 rounded-full border-4 border-white shadow-lg mb-4 object-cover">
+                        <strong
+                            class="bg-white text-primary text-sm font-semibold px-4 py-2 rounded-full shadow-sm">Henny
+                            Rusmiyati,
+                            S.P., M.Si.</strong>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-10">
+                    <div class="flex flex-col items-center text-center w-52" data-aos="fade-up" data-aos-delay="100">
+                        <img src="assets poto dosen/tib-tri-scaled-rc5qx4b4aux3o0rnq2o45y1q6s1rtbkox2gul8f4ce.png"
+                            alt="Pengajar 8"
+                            class="w-36 h-36 rounded-full border-4 border-white shadow-lg mb-4 object-cover">
+                        <strong class="bg-white text-primary text-sm font-semibold px-4 py-2 rounded-full shadow-sm">Dr.
+                            Tri Wahono Dyah Ayu
+                            Sayekti, S.P., M.Si.</strong>
+                    </div>
+                    <div class="flex flex-col items-center text-center w-52" data-aos="fade-up" data-aos-delay="200">
+                        <img src="assets poto dosen/tib-zulfikar-scaled-rc5qto8f6j9gjf8eufxfcd7gqqqy7zbwa3ee1abz3y-removebg-preview 1 (1).png"
+                            alt="Pengajar 9"
+                            class="w-36 h-36 rounded-full border-4 border-white shadow-lg mb-4 object-cover">
+                        <strong class="bg-white text-primary text-sm font-semibold px-4 py-2 rounded-full shadow-sm">Dr.
+                            Zulfikar Damaralam
+                            Sahid, S.P., M.Si.</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sejarah" class="bg-primary text-white py-20 overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-white text-center mb-8" data-aos="fade-up">
+                Sejarah Prodi
+            </h2>
+            <img src="assets/ipb.png" alt="Sejarah Prodi" class="w-full h-100 object-cover rounded-2xl shadow-xl mb-8"
+                data-aos="fade-up" data-aos-delay="100">
+            <p class="text-center text-lg text-white/90 max-w-3xl mx-auto mb-20" data-aos="fade-up"
+                data-aos-delay="200">
+                Secara historis, IPB University telah memperhatikan sektor pembenihan sejak tahun 1978. D3 Program Studi
+                Teknologi Industri Benih salah satu prodi diploma tertua di IPB.
+            </p>
+
+            <div class="relative max-w-3xl mx-auto"
+                style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200'%3E%3Cpath d='M 50 0 Q 0 50, 50 100 Q 100 150, 50 200' stroke='white' stroke-width='3' fill='none' opacity='0.3'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; background-size: 80px auto;">
+
+                <div class="relative flex justify-between items-center w-full mb-24" data-aos="fade-up">
+                    <div class="w-5/12" data-aos="fade-right">
+                        <div class="bg-white text-gray-800 p-4 rounded-lg shadow-lg w-full text-right">
+
+                            <p class="text-lg">Analis dan Pengawas Benih</p>
+                        </div>
+                    </div>
+
+                    <div class="w-5/12" data-aos="fade-left">
+                        <span class="text-4xl font-bold text-white/90">1978</span>
+                    </div>
+
+                    <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                        <div
+                            class="bg-white text-primary w-16 h-16 rounded-full flex items-center justify-center font-bold text-2xl border-4 border-primary">
+                            D2</div>
+                    </div>
+                </div>
+
+                <div class="relative flex justify-between items-center w-full mb-24" data-aos="fade-up">
+                    <div class="w-5/12 text-right" data-aos="fade-right">
+                        <span class="text-4xl font-bold text-white/90">1988</span>
+                    </div>
+
+                    <div class="w-5/12" data-aos="fade-left">
+                        <div class="bg-white text-gray-800 p-4 rounded-lg shadow-lg w-full text-left">
+
+                            <ul class="text-sm list-disc pl-5">
+                                <li>Analis dan Pengawas Benih</li>
+                                <li>Produsen Benih</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                        <div
+                            class="bg-white text-primary w-16 h-16 rounded-full flex items-center justify-center font-bold text-2xl border-4 border-primary">
+                            D3</div>
+                    </div>
+                </div>
+
+                <div class="relative flex justify-between items-center w-full mb-24" data-aos="fade-up">
+                    <div class="w-5/12" data-aos="fade-right">
+                        <div class="bg-white text-gray-800 p-4 rounded-lg shadow-lg w-full text-right">
+
+                            <p class="text-lg">Teknologi Benih</p>
+                        </div>
+                    </div>
+
+                    <div class="w-5/12" data-aos="fade-left">
+                        <span class="text-4xl font-bold text-white/90">1998</span>
+                    </div>
+
+                    <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                        <div
+                            class="bg-white text-primary w-16 h-16 rounded-full flex items-center justify-center font-bold text-2xl border-4 border-primary">
+                            D3</div>
+                    </div>
+                </div>
+
+                <div class="relative flex justify-between items-center w-full mb-24" data-aos="fade-up">
+                    <div class="w-5/12 text-right" data-aos="fade-right">
+                        <span class="text-4xl font-bold text-white/90">2005</span>
+                    </div>
+
+                    <div class="w-5/12" data-aos="fade-left">
+                        <div class="bg-white text-gray-800 p-4 rounded-lg shadow-lg w-full text-left">
+
+                            <p class="text-lg">Program Keahlian Teknologi Industri Benih</p>
+                        </div>
+                    </div>
+
+                    <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                        <div
+                            class="bg-white text-primary w-16 h-16 rounded-full flex items-center justify-center font-bold text-2xl border-4 border-primary">
+                            D3</div>
+                    </div>
+                </div>
+
+                <div class="relative flex justify-between items-center w-full mb-24" data-aos="fade-up">
+                    <div class="w-5/12" data-aos="fade-right">
+                        <div class="bg-white text-gray-800 p-4 rounded-lg shadow-lg w-full text-right">
+
+                            <p class="text-lg">Program Studi Teknologi dan Industri Benih</p>
+                        </div>
+                    </div>
+
+                    <div class="w-5/12" data-aos="fade-left">
+                        <span class="text-4xl font-bold text-white/90">2018</span>
+                    </div>
+
+                    <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                        <div
+                            class="bg-white text-primary w-16 h-16 rounded-full flex items-center justify-center font-bold text-2xl border-4 border-primary">
+                            D3</div>
+                    </div>
+                </div>
+
+                <div class="relative flex justify-between items-center w-full" data-aos="fade-up">
+                    <div class="w-5/12 text-right" data-aos="fade-right">
+                        <span class="text-4xl font-bold text-white/90">2025</span>
+                    </div>
+
+                    <div class="w-5/12" data-aos="fade-left">
+                        <div class="bg-white text-gray-800 p-4 rounded-lg shadow-lg w-full text-left">
+
+                            <p class="text-lg">Pemuliaan Tanaman dan Teknologi Benih </p>
+                        </div>
+                    </div>
+
+                    <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                        <div
+                            class="bg-white text-primary w-16 h-16 rounded-full flex items-center justify-center font-bold text-2xl border-4 border-primary">
+                            D4</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tujuan" class="bg-white py-20">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-primary text-center mb-16" data-aos="fade-up">
+                Tujuan Prodi
+            </h2>
+
+            <div class="space-y-10">
+                <div class="flex items-start" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-6xl font-bold text-primary mr-6 -mt-2">1</div>
+                    <p class="text-lg text-gray-700 mt-2">
+                        Menghasilkan sumber daya manusia yang berintegritas, berkarakter wirausaha,
+                        berpengetahuan, dan terampil dalam pemuliaan dan teknologi benih tanaman
+                        pertanian tropika
+                    </p>
+                </div>
+                <div class="flex items-start" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-6xl font-bold text-primary mr-6 -mt-2">2</div>
+                    <p class="text-lg text-gray-700 mt-2">
+                        Menghasilkan varietas unggul tanaman pertanian tropika
+                    </p>
+                </div>
+                <div class="flex items-start" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-6xl font-bold text-primary mr-6 -mt-2">3</div>
+                    <p class="text-lg text-gray-700 mt-2">
+                        Menghasilkan teknologi tepat guna di bidang teknologi benih tanaman melalui
+                        penelitian terapan dan pengabdian kepada masyarakat.
+                    </p>
+                </div>
+                <div class="flex items-start" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-6xl font-bold text-primary mr-6 -mt-2">4</div>
+                    <p class="text-lg text-gray-700 mt-2">
+                        Menjalin kerja sama Nasional dan Internasional dengan lembaga
+                        pemerintahan dan/atau perusahaan benih untuk mendukung kualitas pendidikan,
+                        penelitian terapan, dan pengabdian masyarakat yang relevan dengan
+                        kebutuhan masyarakat
+                    </p>
+                </div>
+                <div class="flex items-start" data-aos="fade-up" data-aos-delay="500">
+                    <div class="text-6xl font-bold text-primary mr-6 -mt-2">5</div>
+                    <p class="text-lg text-gray-700 mt-2">
+                        Menyebarluaskan varietas unggul dan teknologi benih tepat guna dalam melalui
+                        pengabdian kepada masyarakat.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="relative text-white overflow-hidden mt-20">
+        <div class="absolute top-0 left-0 w-full h-full -z-10" style="
+    background-image: url('footer1.png');
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+  "></div>
+        <div class="relative z-10 pt-32 pb-10">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="assets logo/logoputih.png" alt="PTB Logo" class="h-14">
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        Jl. Kumbang No.14, RT.02/RW.06, Babakan,<br>
+                        Kecamatan Bogor Tengah, Kota Bogor,<br>
+                        Jawa Barat 16128
+                    </p>
+
+                    <div class="flex gap-4 mt-5">
+                        <a href="https://www.instagram.com/ptbsvipb/" class="hover:opacity-70 transition"><i
+                                class="fa-brands fa-instagram text-xl"></i></a>
+                        <a href="https://www.facebook.com/vokasiipb?locale=id_ID" class="hover:opacity-70 transition"><i
+                                class="fa-brands fa-facebook text-xl"></i></a>
+                        <a href="#" class="hover:opacity-70 transition"><i class="fa-brands fa-youtube text-xl"></i></a>
+                        <a href="#" class="hover:opacity-70 transition"><i class="fa-brands fa-tiktok text-xl"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold mb-5">Menu</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="landingpage.php" class="hover:text-purple-300">Beranda</a></li>
+                        <li><a href="sejarahprodi.html" class="hover:text-purple-300">Profil</a></li>
+                        <li><a href="#" class="hover:text-purple-300">Galeri</a></li>
+                        <li><a href="alur pendaftaran.html" class="hover:text-purple-300">Pendaftaran</a></li>
+                        <li><a href="kontak.html" class="hover:text-purple-300">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold mb-5">Kontak</h4>
+                    <p class="text-sm mb-3">+62 852 1659 0447</p>
+                    <p class="text-sm">ptb@apps.ipb.ac.id</p>
+                </div>
+            </div>
+
+            <div class="border-t border-white/30 mt-12 pt-4 text-center">
+                <p class="text-sm">
+                    © 2025 Pohon Toge Kelompok 4 B2
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // ==================================================
+            // 1. MOBILE MENU
+            // ==================================================
+            const menuBtn = document.getElementById("menu-btn");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    const isHidden = mobileMenu.classList.toggle("translate-x-full");
+                    menuBtn.textContent = isHidden ? "☰" : "✕";
+                });
+
+                document.body.addEventListener("click", (e) => {
+                    // Jika menu terbuka dan klik di luar menu & bukan tombol menu
+                    if (!mobileMenu.classList.contains("translate-x-full") &&
+                        !mobileMenu.contains(e.target) &&
+                        e.target !== menuBtn) {
+
+                        mobileMenu.classList.add("translate-x-full");
+                        menuBtn.textContent = "☰";
+                    }
+                });
+
+                // Mencegah menu tertutup saat klik di dalamnya
+                mobileMenu.addEventListener("click", (e) => e.stopPropagation());
+            }
+
+            // ==================================================
+            // 2. NAVBAR SMOOTH SCROLL (Dengan Toleransi/Delta)
+            // ==================================================
+            const navbar = document.getElementById("main-navbar");
+            let lastScrollTop = 0;
+            const delta = 10; // Batas toleransi (agar tidak sensitif)
+
+            if (navbar) {
+                window.addEventListener("scroll", function () {
+                    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+                    // Jika scroll cuma gerak dikit (kurang dari 10px), abaikan
+                    if (Math.abs(lastScrollTop - currentScroll) <= delta) return;
+
+                    // Logic Hide/Show
+                    // Sembunyi jika: Scroll ke Bawah DAN sudah scroll lebih dari 50px dari atas
+                    if (currentScroll > lastScrollTop && currentScroll > 50) {
+                        navbar.style.transform = "translateY(-100%)";
+                    } else {
+                        // Muncul jika: Scroll ke Atas
+                        navbar.style.transform = "translateY(0)";
+                    }
+
+                    lastScrollTop = currentScroll;
+                });
+            }
+
+            // ==================================================
+            // 3. AOS INIT
+            // ==================================================
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    offset: 100,
+                    once: true
+                });
+            }
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loader = document.getElementById('page-loader');
+
+            // 1. SAAT HALAMAN DIBUKA (HAMPIR INSTAN)
+            // Cuma nunggu 200ms (0.2 detik) langsung hilang loadernya
+            setTimeout(() => {
+                if (loader) {
+                    loader.classList.add('opacity-0');
+                    loader.classList.add('pointer-events-none');
+                }
+            }, 200);
+
+            // 2. SAAT PINDAH HALAMAN (NGEBUT)
+            const allLinks = document.querySelectorAll('a');
+
+            allLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetUrl = link.getAttribute('href');
+
+                    // Filter link yang tidak perlu loading
+                    if (!targetUrl || targetUrl === '#' || targetUrl.startsWith('#') || link.target === '_blank') {
+                        return;
+                    }
+
+                    e.preventDefault();
+
+                    // Munculkan loader
+                    if (loader) {
+                        loader.classList.remove('opacity-0');
+                        loader.classList.remove('pointer-events-none');
+                    }
+
+                    // Cuma nunggu 200ms (0.2 detik) langsung pindah
+                    // Ini cukup buat mata ngeliat flash putih sebentar
+                    setTimeout(() => {
+                        window.location.href = targetUrl;
+                    }, 200);
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
